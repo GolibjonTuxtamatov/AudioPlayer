@@ -23,7 +23,7 @@
             <Setter Property="Background" Value="Orange"/>
         </Style>
     </Window.Resources>
-    <Grid Background="#515252">
+    <Grid Background="#515252" PreviewMouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
         <StackPanel>
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -77,7 +77,8 @@
                                   Grid.Row="2" 
                                   Height="20" 
                                   Margin="10" 
-                                  VerticalAlignment="Top">
+                                  VerticalAlignment="Top"
+                                  LoadedBehavior="Manual">
 
                     </MediaElement>
                     <DockPanel Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
@@ -116,7 +117,8 @@
                 <Grid Height="300">
                     <ListView x:Name="musics" 
                                 MouseDoubleClick="musics_MouseDoubleClick"
-                                Margin="20"/>
+                                Margin="20"
+                              Foreground="Snow"/>
                 </Grid>
             </Border>
             <Button x:Name="btnAdd"

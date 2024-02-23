@@ -20,9 +20,18 @@ namespace AudioPlayer
         public MainWindow()
         {
             InitializeComponent();
+            mediaPlayer.Play();
         }
 
-        IEnumerable<string> musicNames = new List<string>();
+        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                Point mousePosition = e.GetPosition(this);
+
+                DragMove();
+            }
+        }
 
         private void btnMiniMized_Click(object sender, RoutedEventArgs e)
         {
@@ -56,8 +65,6 @@ namespace AudioPlayer
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            string music = musics.SelectedValuePath;
-            MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.Play();
         }
 
@@ -111,8 +118,7 @@ namespace AudioPlayer
             openFileDialog.Filter = "mp3 | *mp3";
             openFileDialog.Multiselect = true;
             openFileDialog.ShowDialog();
-            musicNames = openFileDialog.FileNames;
-            musics.ItemsSource = musicNames;
+            musics.ItemsSource = openFileDialog.FileNames;
         }
 
         private async void musics_MouseDoubleClick(object sender, MouseButtonEventArgs e)
