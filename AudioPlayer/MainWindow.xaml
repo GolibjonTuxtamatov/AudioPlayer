@@ -137,8 +137,9 @@
                 Click="btnAdd_Click" 
                 Style="{StaticResource btnControl}" 
                 Width="30" 
-                HorizontalAlignment="Left"
-                Content="+"/>
+                HorizontalAlignment="Left">
+                    <md:PackIcon Kind="Plus"/>
+                </Button>
             </StackPanel>
 
     </Border>
