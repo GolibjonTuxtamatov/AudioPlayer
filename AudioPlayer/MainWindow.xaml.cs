@@ -23,15 +23,6 @@ namespace AudioPlayer
             mediaPlayer.Play();
         }
 
-        private void Grid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                Point mousePosition = e.GetPosition(this);
-
-                DragMove();
-            }
-        }
 
         private void btnMiniMized_Click(object sender, RoutedEventArgs e)
         {
@@ -125,6 +116,11 @@ namespace AudioPlayer
         {
             musicName.Text = musics.SelectedItem.ToString();
             mediaPlayer.Source = new Uri(musics.SelectedItem.ToString());
+        }
+
+        private void mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
