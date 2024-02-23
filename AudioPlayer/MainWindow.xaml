@@ -21,6 +21,7 @@
             <Setter Property="Margin" Value="10 0 10 0"/>
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Width" Value="35"/>
         </Style>
     </Window.Resources>
         <Grid x:Name="mainGrid" Background="#515252" MouseLeftButtonDown="mainGrid_MouseLeftButtonDown">
@@ -34,9 +35,15 @@
                 </StackPanel.Background>
                 <Grid Height="20" VerticalAlignment="Top" Width="380" HorizontalAlignment="Center">
                     <DockPanel Height="20" Width="60" HorizontalAlignment="Right">
-                        <Button x:Name="btnMiniMized" Style="{StaticResource btnBar}" Click="btnMiniMized_Click" Content="_"/>
-                        <Button x:Name="btnPin" Style="{StaticResource btnBar}" Click="btnPin_Click" Content="^"/>
-                        <Button x:Name="btnClose" Style="{StaticResource btnBar}" Click="btnClose_Click" Content="x"/>
+                        <Button x:Name="btnMiniMized" Style="{StaticResource btnBar}" Click="btnMiniMized_Click" >
+                            <md:PackIcon Kind="Minimize"/>
+                        </Button>
+                        <Button x:Name="btnPin" Style="{StaticResource btnBar}" Click="btnPin_Click" >
+                            <md:PackIcon Kind="Pin" Width="10"/>
+                        </Button>
+                        <Button x:Name="btnClose" Style="{StaticResource btnBar}" Click="btnClose_Click">
+                            <md:PackIcon Kind="Close"/>
+                        </Button>
                     </DockPanel>
                     <TextBlock x:Name="Brand" Text="AIMP" FontSize="15" 
                FontStyle="Oblique" 
@@ -44,8 +51,12 @@
                HorizontalAlignment="Center" 
                Foreground="Black"/>
                     <DockPanel Height="20" Width="60" HorizontalAlignment="Left">
-                        <Button x:Name="btnOne" Style="{StaticResource btnBar}" Click="btnOne_Click" Content="^"/>
-                        <Button x:Name="btnTwo" Style="{StaticResource btnBar}" Click="btnTwo_Click" Content="?"/>
+                        <Button x:Name="btnOne" Style="{StaticResource btnBar}" Click="btnOne_Click">
+                            <md:PackIcon Kind="Triangle" Width="8"/>
+                        </Button>
+                        <Button x:Name="btnSetting" Style="{StaticResource btnBar}" Click="btnSetting_Click">
+                            <md:PackIcon Kind="Wrench" Width="10"/>
+                        </Button>
                         <Button x:Name="btnThree" Style="{StaticResource btnBar}" Click="btnThree_Click" Content="#"/>
                     </DockPanel>
                 </Grid>

@@ -44,7 +44,7 @@ namespace AudioPlayer
 
         }
 
-        private void btnTwo_Click(object sender, RoutedEventArgs e)
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -122,5 +122,6 @@ namespace AudioPlayer
         {
             DragMove();
         }
+
     }
 }
