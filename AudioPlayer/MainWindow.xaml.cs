@@ -17,10 +17,12 @@ namespace AudioPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IList<string> musicFullPaths;
         public MainWindow()
         {
             InitializeComponent();
             mediaPlayer.Play();
+            musicFullPaths = new List<string>();
         }
 
 
@@ -73,12 +75,12 @@ namespace AudioPlayer
         {
             if(musics.Items.Count > 0 && musics.SelectedIndex > 0)
             {
-                mediaPlayer.Source = new Uri(musics.Items[musics.SelectedIndex-1].ToString());
+                mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex-1]);
                 musics.SelectedItem = musics.Items[musics.SelectedIndex - 1];
             }
             else if(musics.SelectedIndex == 0)
             {
-                mediaPlayer.Source = new Uri(musics.SelectedItems[musics.SelectedIndex].ToString());
+                mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex]);
             }
             else
             {
@@ -90,12 +92,12 @@ namespace AudioPlayer
         {
             if (musics.Items.Count > 0 && musics.SelectedIndex >= 0 && musics.SelectedIndex < musics.Items.Count - 1)
             {
-                mediaPlayer.Source = new Uri(musics.Items[musics.SelectedIndex + 1].ToString());
+                mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex+1]);
                 musics.SelectedItem = musics.Items[musics.SelectedIndex + 1];
             }
             else if (musics.SelectedIndex == 0)
             {
-                mediaPlayer.Source = new Uri(musics.SelectedItems[musics.SelectedIndex].ToString());
+                mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex]);
             }
             else
             {
@@ -109,13 +111,19 @@ namespace AudioPlayer
             openFileDialog.Filter = "mp3 | *mp3";
             openFileDialog.Multiselect = true;
             openFileDialog.ShowDialog();
-            musics.ItemsSource = openFileDialog.FileNames;
+            musicFullPaths = openFileDialog.FileNames;
+            var musicPaths = openFileDialog.SafeFileNames;
+
+            foreach (var musicPath in musicPaths)
+            {
+                musics.Items.Add(musicPath);
+            }
         }
 
         private async void musics_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             musicName.Text = musics.SelectedItem.ToString();
-            mediaPlayer.Source = new Uri(musics.SelectedItem.ToString());
+            mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex]);
         }
 
         private void mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
