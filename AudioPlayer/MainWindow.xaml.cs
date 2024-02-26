@@ -28,7 +28,7 @@ namespace AudioPlayer
 
         private void btnMiniMized_Click(object sender, RoutedEventArgs e)
         {
-            
+            WindowState = WindowState.Minimized;
         }
 
         private void btnPin_Click(object sender, RoutedEventArgs e)
