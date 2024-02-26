@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\aimp.png" />
     <None Remove="Images\images.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\aimp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\images.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

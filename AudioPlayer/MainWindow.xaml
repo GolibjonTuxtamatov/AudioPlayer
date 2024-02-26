@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:AudioPlayer"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        Icon="/Images/aimp.png"
         Title="Disco" Height="600" Width="400"
         MaxHeight="650" MaxWidth="600"
         MinHeight="600" MinWidth="400">
