@@ -18,6 +18,7 @@ namespace AudioPlayer
     public partial class MainWindow : Window
     {
         private IList<string> musicFullPaths;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -75,11 +76,15 @@ namespace AudioPlayer
         {
             if(musics.Items.Count > 0 && musics.SelectedIndex > 0)
             {
+                musicName.Text = musics.SelectedItem.ToString();
+
                 mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex-1]);
                 musics.SelectedItem = musics.Items[musics.SelectedIndex - 1];
             }
             else if(musics.SelectedIndex == 0)
             {
+                musicName.Text = musics.SelectedItem.ToString();
+
                 mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex]);
             }
             else
@@ -92,11 +97,15 @@ namespace AudioPlayer
         {
             if (musics.Items.Count > 0 && musics.SelectedIndex >= 0 && musics.SelectedIndex < musics.Items.Count - 1)
             {
+                musicName.Text = musics.SelectedItem.ToString();
+
                 mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex+1]);
                 musics.SelectedItem = musics.Items[musics.SelectedIndex + 1];
             }
             else if (musics.SelectedIndex == 0)
             {
+                musicName.Text = musics.SelectedItem.ToString();
+
                 mediaPlayer.Source = new Uri(musicFullPaths[musics.SelectedIndex]);
             }
             else
