@@ -93,9 +93,27 @@
                               Height="20" 
                               Margin="10" 
                               VerticalAlignment="Top"
-                              LoadedBehavior="Manual">
+                              LoadedBehavior="Manual"
+                              MediaOpened="mediaPlayer_MediaOpened"
+                              MediaEnded="mediaPlayer_MediaEnded">
 
                         </MediaElement>
+                        <Slider x:Name="musicLength" 
+                                Grid.Row="2" 
+                                Height="20" 
+                                Width="300" 
+                                Foreground="Orange"
+                                VerticalAlignment="Top"
+                                Value="{Binding MusicDuration, Mode=TwoWay}"/>
+                        <Slider x:Name="musicVolume"
+                                Grid.Row="2"
+                                Height="20"
+                                Width="100"
+                                Foreground="Orange"
+                                HorizontalAlignment="Right"
+                                Margin="0 0 40 20"
+                                VerticalContentAlignment="Center"
+                                ValueChanged="musicVolume_ValueChanged"/>
                         <DockPanel Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
                             <Button x:Name="btnPlay" 
                         Style="{StaticResource btnControl}" 
